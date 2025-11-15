@@ -54,6 +54,12 @@
         .gif-container {
             margin-bottom: 30px;
         }
+
+        .error-message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #ff6347; /* Red for error message */
+        }
     </style>
 </head>
 <body>
@@ -72,7 +78,39 @@
     <!-- Buttons -->
     <a href="https://github.com/awesam7" class="btn" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/sharma-sam" class="btn" target="_blank">LinkedIn</a>
-    <a href="http://13.59.2.247:5000" class="btn" target="_blank">Project</a>
+    <a id="projectBtn" href="http://13.59.2.247:5000" class="btn" target="_blank">Project</a>
+
+    <!-- Error Message -->
+    <div id="errorMessage" class="error-message" style="display: none;">
+        Contact Sambhav for starting the instance.
+    </div>
+
+    <script>
+        // Check if the "Project" link is reachable
+        function checkProjectLink() {
+            const projectLink = "http://13.59.2.247:5000";
+            const projectButton = document.getElementById('projectBtn');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Use Fetch API to check the link
+            fetch(projectLink, { method: 'HEAD' })
+                .then(response => {
+                    if (!response.ok) {
+                        // If the link is not reachable, show the error message
+                        errorMessage.style.display = 'block';
+                        projectButton.style.display = 'none';  // Hide the "Project" button
+                    }
+                })
+                .catch(() => {
+                    // If the fetch request fails, show the error message
+                    errorMessage.style.display = 'block';
+                    projectButton.style.display = 'none';  // Hide the "Project" button
+                });
+        }
+
+        // Call the function to check the link when the page loads
+        window.onload = checkProjectLink;
+    </script>
 
 </body>
 </html>
