@@ -1,25 +1,47 @@
-<h1>Welcome to Awesam Page!</h1>
-<p>Hello! I am <strong>Sambhav</strong>. This is my project page.</p>
-
-<!-- Buttons -->
-<a href="https://github.com/awesam7" class="btn" target="_blank">GitHub</a>
-<a href="https://www.linkedin.com/in/sharma-sam" class="btn" target="_blank">LinkedIn</a>
-<a href="#" class="btn" id="projectBtn">Project</a>
-
-<script>
-    const projectBtn = document.getElementById('projectBtn');
-    const projectURL = "http://13.59.2.247:5000";
-
-    projectBtn.addEventListener('click', async function(e) {
-        e.preventDefault(); // prevent default link behavior
-
-        try {
-            const response = await fetch(projectURL, {mode: 'no-cors'});
-            // If fetch succeeds, open the link
-            window.open(projectURL, '_blank');
-        } catch (error) {
-            // If fetch fails, show message
-            alert("Project is currently not reachable. Please contact Sambhav.");
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Awesam Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center; /* center all text */
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 50px;
         }
-    });
-</script>
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Awesam Page!</h1>
+    <p>Hello! I am <strong>Sambhav</strong>. This is my project page.</p>
+
+    <!-- Buttons -->
+    <a href="https://github.com/awesam7" class="btn" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/sharma-sam" class="btn" target="_blank">LinkedIn</a>
+    <a href="http://13.59.2.247:5000" class="btn" target="_blank">Project</a>
+</body>
+</html>
