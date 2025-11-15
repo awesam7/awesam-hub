@@ -4,4 +4,22 @@
 <!-- Buttons -->
 <a href="https://github.com/awesam7" class="btn" target="_blank">GitHub</a>
 <a href="https://www.linkedin.com/in/sharma-sam" class="btn" target="_blank">LinkedIn</a>
-<a href="http://13.59.2.247:5000" class="btn" target="_blank">Weather Page</a>
+<a href="#" class="btn" id="projectBtn">Project</a>
+
+<script>
+    const projectBtn = document.getElementById('projectBtn');
+    const projectURL = "http://13.59.2.247:5000";
+
+    projectBtn.addEventListener('click', async function(e) {
+        e.preventDefault(); // prevent default link behavior
+
+        try {
+            const response = await fetch(projectURL, {mode: 'no-cors'});
+            // If fetch succeeds, open the link
+            window.open(projectURL, '_blank');
+        } catch (error) {
+            // If fetch fails, show message
+            alert("Project is currently not reachable. Please contact Sambhav.");
+        }
+    });
+</script>
