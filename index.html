@@ -4,44 +4,75 @@
     <title>Awesam Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center; /* center all text */
-            background-color: #f0f2f5;
+            font-family: 'Poppins', Arial, sans-serif;
+            text-align: center;
+            background-color: #000; /* black background */
             margin: 0;
             padding: 50px;
+            color: #fff;
         }
+
+        /* Colorful gradient title */
         h1 {
-            font-size: 2em;
+            font-size: 3em;
             margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #f7d794, #1dd1a1, #54a0ff, #5f27cd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
         }
+
+        /* Colorful paragraph text */
         p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             margin-bottom: 30px;
+            background: linear-gradient(45deg, #ff9ff3, #feca57, #48dbfb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
+        /* Buttons redesigned for black theme */
         .btn {
             display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 1em;
+            padding: 12px 25px;
+            margin: 8px;
+            font-size: 1.1em;
             color: #fff;
-            background-color: #3498db;
+            background: linear-gradient(45deg, #341f97, #7158e2);
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
+            transition: 0.3s;
         }
+
         .btn:hover {
-            background-color: #2980b9;
+            background: linear-gradient(45deg, #5f27cd, #9980FA);
+            transform: scale(1.05);
+        }
+
+        .gif-container {
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
+
+    <!-- GIF at the top -->
+    <div class="gif-container">
+        <img src="https://media.giphy.com/media/DpNrB4a210Qg0/giphy.gif" 
+             alt="Animated gif of a rocket launching"
+             width="250">
+    </div>
+
     <h1>Welcome to Awesam Page!</h1>
+
     <p>Hello! I am <strong>Sambhav</strong>. This is my project page.</p>
 
     <!-- Buttons -->
     <a href="https://github.com/awesam7" class="btn" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/sharma-sam" class="btn" target="_blank">LinkedIn</a>
     <a href="http://13.59.2.247:5000" class="btn" target="_blank">Project</a>
+
 </body>
 </html>
