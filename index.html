@@ -6,23 +6,20 @@
         body {
             font-family: 'Poppins', Arial, sans-serif;
             text-align: center;
-            background-color: #000; /* black background */
+            background-color: #000;
             margin: 0;
             padding: 50px;
             color: #fff;
         }
 
-        /* Colorful gradient title */
         h1 {
             font-size: 3em;
             margin-bottom: 10px;
             background: linear-gradient(45deg, #ff6b6b, #f7d794, #1dd1a1, #54a0ff, #5f27cd);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: bold;
         }
 
-        /* Colorful paragraph text */
         p {
             font-size: 1.3em;
             margin-bottom: 30px;
@@ -31,7 +28,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Buttons redesigned for black theme */
         .btn {
             display: inline-block;
             padding: 12px 25px;
@@ -51,23 +47,21 @@
             transform: scale(1.05);
         }
 
-        .gif-container {
-            margin-bottom: 30px;
-        }
+        .gif-container { margin-bottom: 30px; }
 
         .error-message {
             margin-top: 20px;
-            font-size: 1.2em;
-            color: #ff6347; /* Red for error message */
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ff5050;
         }
     </style>
 </head>
 <body>
 
-    <!-- GIF at the top -->
     <div class="gif-container">
         <img src="https://media.giphy.com/media/DpNrB4a210Qg0/giphy.gif" 
-             alt="Animated gif of a rocket launching"
+             alt="Rocket"
              width="250">
     </div>
 
@@ -75,41 +69,40 @@
 
     <p>Hello! I am <strong>Sambhav</strong>. This is my project page.</p>
 
-    <!-- Buttons -->
     <a href="https://github.com/awesam7" class="btn" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/sharma-sam" class="btn" target="_blank">LinkedIn</a>
+
+    <!-- Project button -->
     <a id="projectBtn" href="http://13.59.2.247:5000" class="btn" target="_blank">Project</a>
 
-    <!-- Error Message -->
-    <div id="errorMessage" class="error-message" style="display: none;">
-        Contact Sambhav for starting the instance.
+    <!-- Hidden message -->
+    <div id="errorMessage" class="error-message" style="display:none;">
+        ⚠️ Project instance is offline — Contact <strong>Sambhav</strong> to start it.
     </div>
 
     <script>
-        // Check if the "Project" link is reachable
-        function checkProjectLink() {
-            const projectLink = "http://13.59.2.247:5000";
-            const projectButton = document.getElementById('projectBtn');
-            const errorMessage = document.getElementById('errorMessage');
+        function checkProjectStatus() {
+            const url = "http://13.59.2.247:5000";
+            const btn = document.getElementById("projectBtn");
+            const msg = document.getElementById("errorMessage");
 
-            // Use Fetch API to check the link
-            fetch(projectLink, { method: 'HEAD' })
-                .then(response => {
-                    if (!response.ok) {
-                        // If the link is not reachable, show the error message
-                        errorMessage.style.display = 'block';
-                        projectButton.style.display = 'none';  // Hide the "Project" button
+            // Try fetching the project
+            fetch(url, { method: "GET" })
+                .then(resp => {
+                    // If server is up but returns error code (like 500)
+                    if (!resp.ok) {
+                        btn.style.display = "none";
+                        msg.style.display = "block";
                     }
                 })
-                .catch(() => {
-                    // If the fetch request fails, show the error message
-                    errorMessage.style.display = 'block';
-                    projectButton.style.display = 'none';  // Hide the "Project" button
+                .catch(err => {
+                    // If server is DOWN -> ERR_CONNECTION_REFUSED triggers here
+                    btn.style.display = "none";
+                    msg.style.display = "block";
                 });
         }
 
-        // Call the function to check the link when the page loads
-        window.onload = checkProjectLink;
+        window.onload = checkProjectStatus;
     </script>
 
 </body>
