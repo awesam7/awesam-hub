@@ -32,10 +32,4 @@ The page is built using **Flask** and styled with **HTML/CSS**, making it both i
 - **Hosting:** AWS EC2 (t3.micro)  
 - **APIs:** OpenWeatherMap, ip-api.com  
 
-## How to Run Locally
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/awesam7/awesam-hub.git
-cd awesam-hub
