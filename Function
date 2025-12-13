@@ -1,0 +1,25 @@
+"""
+ name = input("enter first name:")
+print(len(name))
+
+last = input("enter last name:")
+print("full name is \n" + name,last )
+"""
+"""
+name = "Hello I $ am  $john. "
+print(name.count("$"))
+"""
+"""
+list = [1,4,5,6]
+list.append(5)
+list.sort( )
+list.pop(3)
+list.insert(1,2)
+print(list)  
+"""
+
+count = 1
+while (count <= 5):
+    print("Hello", count)
+    count += 1
+print(count)    
